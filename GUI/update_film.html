@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar película</title>
+    <link rel="stylesheet" href="public/menu.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        form h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        form p {
+            margin-top: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        form input[type="text"],
+        form input[type="number"] {
+            width: calc(100% - 10px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="number"]:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        form input[type="checkbox"] {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        form label {
+            color: #666;
+            font-size: 16px;
+        }
+
+        form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Lista de películas</a></li>
+            <li><a href="#">Insertar película</a></li>
+            <li><a href="#">Actualizar película</a></li>
+        </ul>
+    </nav>
+
+    <form>
+        <h1>Editar película</h1>
+        <input type="text" id="id" name="id" placeholder="ID">
+
+        <input type="text" id="titulo" name="titulo" placeholder="Título">
+
+        <input type="text" id="descripcion" name="descripcion" placeholder="Descripción">
+
+        <input type="text" id="anio_lanzamiento" name="anio_lanzamiento" placeholder="Año de lanzamiento">
+        <p>Ingresa un año de 4 cifras</p>
+
+        <input type="number" id="lenguaje" name="lenguaje" placeholder="Lenguaje">
+
+        <input type="number" id="lenguaje_original" name="lenguaje_original" placeholder="Lenguaje original">
+
+        <input type="number" id="duracion_renta" name="duracion_renta" placeholder="Duración de la renta">
+
+        <input type="number" id="tasa_renta" name="tasa_renta" placeholder="Tasa de renta">
+
+        <input type="number" id="duracion" name="duracion" placeholder="Duración">
+
+        <input type="number" id="costo_reemplazo" name="costo_reemplazo" placeholder="Costo de reemplazo">
+
+        <input type="text" id="rating" name="rating" placeholder="Rating">
+
+        <h1>Contenido especial</h1>
+        <input type="checkbox" id="trailer" name="contenido_especial" value="trailer">
+        <label for="trailer">Trailer</label>
+
+        <input type="checkbox" id="comentarios" name="contenido_especial" value="comentarios">
+        <label for="comentarios">Comentarios</label>
+
+        <input type="checkbox" id="escenas_eliminadas" name="contenido_especial" value="escenas_eliminadas">
+        <label for="escenas_eliminadas">Escenas eliminadas</label>
+
+        <input type="checkbox" id="detras_de_escenas" name="contenido_especial" value="detras_de_escenas">
+        <label for="detras_de_escenas">Detrás de Escenas</label>
+
+        <button type="submit">Editar</button>
+    </form>
+</body>
+
+</html>
+

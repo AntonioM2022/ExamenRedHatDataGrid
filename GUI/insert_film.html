@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar pelicula</title>
+    <link rel="stylesheet" href="public/menu.css">
+    
+</head>
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="film_list.html">Lista de peliculas</a></li>
+            <li><a href="insert_film.html">Insertar pelicula</a></li>
+            <li><a href="update_film.html">Actualizar pelicula</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Insertar pelicula</h1>
+    </header>
+
+    <form action="">
+        <label for="id_filme">Id del filme:</label>
+        <input type="number" id="id_filme" name="id_filme">
+
+        <label for="titulo">Titulo:</label>
+        <input type="text" id="titulo" name="titulo">
+
+        <label for="descripcion">Descripcion:</label>
+        <input type="text" id="descripcion" name="descripcion">
+
+        <label for="fecha_lanzamiento">Fecha de lanzamiento:</label>
+        <input type="number" id="fecha_lanzamiento" name="fecha_lanzamiento">
+
+        <label for="id idioma">Id idioma:</label>
+        <input type="number" id="idIdioma" name="id idioma">
+
+        <label for="duracion renta">Duracion de la renta:</label>
+        <input type="number" id="duracion" name="duracion renta">
+
+        <label for="tasa de renta">Tasa de renta:</label>
+        <input type="number" id="tRenta" name="tasa de renta">
+
+        <label for="duracion">Duracion</label>
+        <input type="number" id="duracion" name="duracion">
+
+        <label for="costo remplazo">Costo de remplazo:</label>
+        <input type="number" id="cRemplazo"  name="costo remplazo">
+
+        
+        <button type="submit">Insertar</button>
+        <button type="reset">Limpiar</button>
+    </form>
+
+    <style>
+     form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        form h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        form p {
+            margin-top: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        form input[type="text"],
+        form input[type="number"] {
+            width: calc(100% - 10px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="number"]:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        form input[type="checkbox"] {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        form label {
+            color: #666;
+            font-size: 16px;
+        }
+
+        form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    
+</body>
+</html>

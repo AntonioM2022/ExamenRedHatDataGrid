@@ -47,7 +47,10 @@ CREATE PROCEDURE sp_insert_film(
     IN p_length SMALLINT(5),
     IN p_replacement_cost DECIMAL(5, 2),
     IN p_rating ENUM ('G','PG','PG-13','R','NC-17'),
-    IN p_special_features SET ('Trailers','Commentaries','Deleted Scenes','Behind the Scenes')
+    IN p_special_features SET ('Trailers','Commentaries','Deleted Scenes','Behind the Scenes'),
+    IN p_actors_ids VARCHAR(255),
+    IN p_category_id INT,
+    OUT p_film_id INT
 )
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
@@ -68,6 +71,25 @@ BEGIN
     VALUES (p_title, p_description, p_release_year, p_language_id,
             p_original_language_id, p_rental_duration, p_rental_rate,
             p_length, p_replacement_cost, p_rating, p_special_features);
+
+    -- Obtener el ID de la película insertada
+    SELECT LAST_INSERT_ID() INTO p_film_id;
+
+    -- Split de la cadena de actores
+    SET p_actors_ids = CONCAT(p_actors_ids, ',');
+    SET @pos = LOCATE(',', p_actors_ids);
+    WHILE @pos > 0
+        DO
+            SET @actor_id = SUBSTRING(p_actors_ids, 1, @pos - 1);
+            INSERT INTO film_actor (film_id, actor_id)
+            VALUES (p_film_id, @actor_id);
+            SET p_actors_ids = SUBSTRING(p_actors_ids, @pos + 1);
+            SET @pos = LOCATE(',', p_actors_ids);
+        END WHILE;
+
+    -- Insertar la relación entre la película y la categoría
+    INSERT INTO film_category (film_id, category_id)
+    VALUES (p_film_id, p_category_id);
 
     -- Confirmar la transacción
     COMMIT;

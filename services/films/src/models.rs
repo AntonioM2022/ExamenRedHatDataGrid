@@ -15,6 +15,8 @@ pub struct NewFilm {
     pub replacement_cost: Decimal,
     pub rating: String,
     pub special_features: String,
+    pub actors: Vec<i32>,
+    pub category: i32,
 }
 
 #[derive(Debug, Deserialize)]

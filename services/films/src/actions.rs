@@ -48,12 +48,11 @@ pub async fn create_film(
     pool: &sqlx::Pool<MySql>,
     new_film: NewFilm,
 ) -> Result<String, PersistenceError> {
-    log::info!("Creating new film: {:?}", new_film);
+    log::debug!("Creating film: {:?}", new_film);
+    let film_id = 0;
     let film = sqlx::query(
         r#"
-        CALL sp_insert_film(
-        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
-        )
+        CALL sp_insert_film(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
         "#,
     )
     .bind(new_film.title)
@@ -67,6 +66,9 @@ pub async fn create_film(
     .bind(new_film.replacement_cost)
     .bind(new_film.rating)
     .bind(new_film.special_features)
+    .bind(new_film.actors.iter().map(|x| x.to_string()).collect::<Vec<String>>().join(","))
+    .bind(new_film.category)
+    .bind(film_id)
     .execute(&mut *pool.acquire().await?)
     .await
     .map_err(PersistenceError::from)?;
@@ -92,7 +94,7 @@ pub async fn get_film_by_id(
 }
 
 pub async fn update_film(pool: &MySqlPool, film: FilmUpdate) -> Result<String, PersistenceError> {
-    log::info!("Updating film: {:?}", film);
+    log::debug!("Updating film: {:?}", film);
     let updated_film = sqlx::query(
         r#"
         CALL sp_update_film( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)

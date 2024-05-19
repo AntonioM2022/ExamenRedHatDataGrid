@@ -1,5 +1,8 @@
 @echo off
+title Preparing environment
+cd %~dp0
 
+REM Start the database and phpmyadmin
 docker-compose up -d
 
 REM Wait for database to be ready

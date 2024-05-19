@@ -79,7 +79,7 @@ CREATE TABLE `film`
     `film_id`              smallint(5)   NOT NULL AUTO_INCREMENT,
     `title`                varchar(128)  NOT NULL,
     `description`          text                                                                 DEFAULT NULL,
-    `release_year`         int(4)                                                              DEFAULT NULL,
+    `release_year`         int(4)                                                               DEFAULT NULL,
     `language_id`          tinyint(3)    NOT NULL,
     `original_language_id` tinyint(3)                                                           DEFAULT NULL,
     `rental_duration`      tinyint(3)    NOT NULL                                               DEFAULT 3,

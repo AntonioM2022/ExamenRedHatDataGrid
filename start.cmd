@@ -1,6 +1,6 @@
 @echo off
 
-docker-compose up -d database || true
+docker-compose up -d
 
 REM Wait for database to be ready
 :loop
@@ -11,9 +11,4 @@ if errorlevel 1 (
   goto loop
 )
 
-REM Run the application
-setx DATABASE_URL "mysql://admin:admin@localhost:3306/redHatDataGridVideo" /M
-
-REM Run the application
-cd bin
-films.exe
+api.cmd

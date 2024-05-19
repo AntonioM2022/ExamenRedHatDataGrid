@@ -19,5 +19,22 @@ services:
       timeout: 5s
       retries: 3
 
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: database
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      database:
+        condition: service_healthy
+    links:
+      - database
+
 volumes:
   data:

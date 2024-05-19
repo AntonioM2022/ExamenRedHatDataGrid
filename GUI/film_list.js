@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const apiURL = "localhost:8080"; 
+    const apiURL = "http://localhost:8080";
     const actualizarButton = document.getElementById("actualizar");
 
     function fetchData() {
@@ -16,29 +16,35 @@ document.addEventListener("DOMContentLoaded", function() {
         const table = document.querySelector("table");
         const row = document.createElement("tr");
 
-        const fields = [
-            film.film_id,
-            film.title,
-            film.description,
-            film.release_year,
-            film.rental_duration,
-            film.rental_rate,
-            film.length,
-            film.replacement_cost,
-            film.rating,
-            film.special_features,
-            film.last_update,
-            film.language_name,
-            film.category_name,
-            film.actors
-        ];
+        function insertRow(table, film) {
+            const row = document.createElement("tr");
+            const fields = [
+                film.film_id,
+                film.title,
+                film.description,
+                film.release_year,
+                film.rental_duration,
+                film.rental_rate,
+                film.length,
+                film.replacement_cost,
+                film.rating,
+                film.special_features,
+                film.language_name,
+                film.category_name,
+                film.actors
+            ];
+            fields.forEach(field => {
+                const cell = document.createElement("td");
+                cell.textContent = field;
+                row.appendChild(cell);
+            });
+            table.appendChild(row);
+        }
 
-        fields.forEach(field => {
-            const cell = document.createElement("td");
-            cell.textContent = field;
-            row.appendChild(cell);
+
+        film.forEach(film => {
+            insertRow(table, film);
         });
-
         table.appendChild(row);
     }
 

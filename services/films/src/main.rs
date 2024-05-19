@@ -23,7 +23,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .app_data(shared_data.clone())
-            .wrap(Cors::default().allow_any_origin())
+            .wrap(Cors::default().allow_any_origin().allow_any_method().allow_any_header())
             .wrap(middleware::Logger::default())
             .service(health_check)
             .service(get_films)

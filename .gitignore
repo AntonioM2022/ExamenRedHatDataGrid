@@ -17,5 +17,8 @@ Cargo.lock
 # Environment file
 .env
 
-#
+# Visual Studio Code files
+.vscode/
 
+# IntelliJ IDEA files
+.idea/

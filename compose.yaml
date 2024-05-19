@@ -20,6 +20,7 @@ services:
       retries: 3
 
   phpmyadmin:
+    container_name: phpMyAdmin
     image: phpmyadmin:latest
     restart: always
     ports:

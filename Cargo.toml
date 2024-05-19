@@ -1,0 +1,14 @@
+[workspace]
+resolver = "2"
+members = ["services/lib", "services/films"]
+
+[workspace.dependencies]
+actix-web = "4.5"
+actix-cors = "0.7"
+chrono = { version = "0.4", features = ["serde"] }
+derive_more = "0.99"
+dotenvy = "0.15"
+env_logger = "0.11"
+sqlx = {version = "0.7", features = ["runtime-async-std-native-tls", "mysql", "chrono", "uuid", "rust_decimal"]}
+serde = { version = "1.0.201", features = ["derive"] }
+log = "0.4"

@@ -1,0 +1,16 @@
+[package]
+name = "films"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web.workspace = true
+actix-cors.workspace = true
+chrono.workspace = true
+derive_more.workspace = true
+sqlx.workspace = true
+serde.workspace = true
+log.workspace = true
+
+# Call local dependencies
+lib = { path = "../lib" }

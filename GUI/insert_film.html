@@ -18,43 +18,59 @@
       <h1>Insertar pelicula</h1>
     </header>
 
-    <form action="">
-      <label for="titulo">Titulo:</label>
-      <input type="text" id="titulo" name="titulo" />
+    <form id="filmForm">
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" name="titulo">
 
-      <label for="descripcion">Descripcion:</label>
-      <input type="text" id="descripcion" name="descripcion" />
+      <label for="descripcion">Descripción:</label>
+      <input type="text" id="descripcion" name="descripcion">
 
-      <label for="fecha_lanzamiento">Fecha de lanzamiento:</label>
-      <input type="number" id="fecha_lanzamiento" name="fecha_lanzamiento" />
+      <label for="fecha_lanzamiento">Año de lanzamiento:</label>
+      <input type="number" id="fecha_lanzamiento" name="fecha_lanzamiento">
 
       <label for="idIdioma">Id idioma:</label>
-      <input type="number" id="idIdioma" name="idIdioma" mn placeholder="1"/>
+      <input type="number" id="idIdioma" name="idIdioma" placeholder="1">
 
-      <label for="duracion">Duracion de la renta:</label>
-      <input type="number" id="duracion" name="duracion" />
+      <label for="duracion">Duración de la renta:</label>
+      <input type="number" id="duracion" name="duracion">
 
       <label for="tRenta">Tasa de renta:</label>
-      <input type="number" id="tRenta" name="tRenta" />
+      <input type="text" id="tRenta" name="tRenta">
 
-      <label for="duracion">Duracion</label>
-      <input type="number" id="duracion" name="duracion" />
+      <label for="duracion">Duración:</label>
+      <input type="number" id="duracion" name="duracion">
 
-      <label for="cRemplazo">Costo de remplazo:</label>
-      <input type="number" id="cRemplazo" name="cRemplazo" />
+      <label for="cRemplazo">Costo de reemplazo:</label>
+      <input type="text" id="cRemplazo" name="cRemplazo">
 
       <label for="rating">Rating:</label>
-      <input type="text" id="rating" name="rating" />
+      <input type="text" id="rating" name="rating">
 
-      <label for="special_features">Caracteristicas especiales:</label>
-      <input type="text" id="special_features" name="special_features" />
+      <label for="actors">Id actores</label>
+      <p>Agrega los id separados por comas y sin espacios</p>
+      <input type="text" id="actors" name="actors">
 
-      <label for="category">Categoria</label>
+      <div>
+          <label for="">Contenido especial:</label><br>
+          <input type="checkbox" id="contenido_especial_1" name="contenido_especial" value="Trailers">
+          <label for="trailer">Trailer</label>
+
+          <input type="checkbox" id="contenido_especial_2" name="contenido_especial" value="Commentaries">
+          <label for="comentarios">Comentarios</label>
+
+          <input type="checkbox" id="contenido_especial_3" name="contenido_especial" value="Deleted Scenes">
+          <label for="escenas_eliminadas">Escenas eliminadas</label>
+
+          <input type="checkbox" id="contenido_especial_4" name="contenido_especial" value="Behind the Scenes">
+          <label for="detras_de_escenas">Detrás de escenas</label>
+      </div>
+
+      <label for="category">Categoría:</label>
       <input type="number" min="1" max="16" name="category" id="category">
 
       <button type="submit">Insertar</button>
       <button type="reset">Limpiar</button>
-    </form>
+  </form>
 
     <style>
       form {

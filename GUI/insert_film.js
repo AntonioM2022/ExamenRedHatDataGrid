@@ -1,22 +1,23 @@
+
 document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector("form");
+    const form = document.getElementById("filmForm");
 
     form.addEventListener("submit", function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
         const title = document.getElementById("titulo").value;
         const description = document.getElementById("descripcion").value;
         const releaseYear = parseInt(document.getElementById("fecha_lanzamiento").value);
         const languageId = parseInt(document.getElementById("idIdioma").value);
-        const originalLanguageId = 2;//Aqui puede ir null 
+        const originalLanguageId = 2; // Aquí puede ir null
         const rentalDuration = parseInt(document.getElementById("duracion").value);
         const rentalRate = parseFloat(document.getElementById("tRenta").value).toFixed(2);
         const length = parseInt(document.getElementById("duracion").value);
         const replacementCost = parseFloat(document.getElementById("cRemplazo").value).toFixed(2);
         const rating = document.getElementById("rating").value;
-        const specialFeatures = document.getElementById("special_features").value;
-        const actors = [1, 2]; // Asumiendo valores fijos para "actors"
-        const category = document.getElementById("category").value;
+        const specialFeatures = Array.from(document.querySelectorAll('input[name="contenido_especial"]:checked')).map(checkbox => checkbox.value).join(',');
+        const actors = document.getElementById("actors").value.split(',').map(id => parseInt(id.trim())).filter(id => !isNaN(id));
+        const category = parseInt(document.getElementById("category").value);
 
         const filmData = {
             title,
@@ -33,8 +34,9 @@ document.addEventListener("DOMContentLoaded", function() {
             actors,
             category
         };
+        console.log(filmData);
 
-        fetch("localhost:8080", { 
+        fetch("http://localhost:8080", { 
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

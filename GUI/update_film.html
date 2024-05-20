@@ -92,7 +92,7 @@
 <h1>Editar película</h1>
     <input type="text" id="id" name="id" placeholder="ID">
     <button id="buscar">Buscar</button>
-<form>
+<form id="editform">
 
     <input type="text" id="titulo" name="titulo" placeholder="Título">
 
@@ -102,31 +102,29 @@
     <input type="text" id="anio_lanzamiento" name="anio_lanzamiento" placeholder="Año de lanzamiento">
   
 
-    <input type="number" id="lenguaje" name="lenguaje" placeholder="Lenguaje">
-
-    <input type="number" id="lenguaje_original" name="lenguaje_original" placeholder="Lenguaje original">
+    <input type="number" id="Idlenguaje" name="lenguaje" placeholder="Idlenguaje">
 
     <input type="number" id="duracion_renta" name="duracion_renta" placeholder="Duración de la renta">
 
-    <input type="number" id="tasa_renta" name="tasa_renta" placeholder="Tasa de renta">
+    <input type="text" id="tasa_renta" name="tasa_renta" placeholder="Tasa de renta">
 
     <input type="number" id="duracion" name="duracion" placeholder="Duración">
 
-    <input type="number" id="costo_reemplazo" name="costo_reemplazo" placeholder="Costo de reemplazo">
+    <input type="text" id="costo_reemplazo" name="costo_reemplazo" placeholder="Costo de reemplazo">
 
     <input type="text" id="rating" name="rating" placeholder="Rating">
 
     <h1>Contenido especial</h1>
-    <input type="checkbox" id="trailer" name="contenido_especial" value="trailer">
+    <input type="checkbox" id="trailer" name="contenido_especial" value="Trailers">
     <label for="trailer">Trailer</label>
 
-    <input type="checkbox" id="comentarios" name="contenido_especial" value="comentarios">
+    <input type="checkbox" id="comentarios" name="contenido_especial" value="Commentaries">
     <label for="comentarios">Comentarios</label>
 
-    <input type="checkbox" id="escenas_eliminadas" name="contenido_especial" value="escenas_eliminadas">
+    <input type="checkbox" id="escenas_eliminadas" name="contenido_especial" value="Deleted Scenes">
     <label for="escenas_eliminadas">Escenas eliminadas</label>
 
-    <input type="checkbox" id="detras_de_escenas" name="contenido_especial" value="detras_de_escenas">
+    <input type="checkbox" id="detras_de_escenas" name="contenido_especial" value="Behind the Scenes">
     <label for="detras_de_escenas">Detrás de Escenas</label>
 
     <button type="submit">Editar</button>

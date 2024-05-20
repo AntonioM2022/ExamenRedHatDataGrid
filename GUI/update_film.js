@@ -12,21 +12,18 @@ buscar.addEventListener("click", function() {
         fetch(apiURL + '/'+id)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                if (id == data.id) {
-                    document.getElementById("titulo").value = data.title;
-                    document.getElementById("anio_lanzamiento").value = data.release_year;
-                    document.getElementById("duracion").value = data.length;
-                    document.getElementById("rating").value = data.rating;
-                    document.getElementById("descripcion").value = data.description;
-                    
-                    
-                    const features = data.special_features.split(',');
-                    document.getElementById("trailer").checked = features.includes("trailer");
-                    document.getElementById("comentarios").checked = features.includes("comentarios");
-                    document.getElementById("escenas_eliminadas").checked = features.includes("escenas_eliminadas");
-                    document.getElementById("detras_de_escenas").checked = features.includes("detras_de_escenas");
-                }
+                console.log('Success:', data);
+                document.getElementById("titulo").value = data.title;
+                document.getElementById("anio_lanzamiento").value = data.release_year;
+                document.getElementById("duracion").value = data.length;
+                document.getElementById("rating").value = data.rating;
+                document.getElementById("descripcion").value = data.description;
+
+                const special_features = data.special_features.split(',');
+                if (special_features.includes("trailer")) document.getElementById("trailer").checked = true;
+                if (special_features.includes("comentarios")) document.getElementById("comentarios").checked = true;
+                if (special_features.includes("escenas_eliminadas")) document.getElementById("escenas_eliminadas").checked = true;
+                if (special_features.includes("detras_de_escenas")) document.getElementById("detras_de_escenas").checked = true;
             })
             .catch(error => console.error('Error al obtener los datos:', error));
     }
